@@ -4,11 +4,6 @@ module "tls" {
   hostname = "tfe.company.com"
 }
 
-output "test" {
-  value     = module.tls
-  sensitive = true
-}
-
 resource "local_file" "ca" {
   filename = "./keys/ca.cert"
   content  = module.tls.ca.pem
